@@ -58,6 +58,7 @@ public class Login extends JFrame {
 		btn.addActionListener(new ActionListener() {
 			int count = 0; // count agent
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				boolean admin = false;
@@ -87,4 +88,8 @@ public class Login extends JFrame {
 		setVisible(true); // SHOW THE FRAME
 	}
 
+	public static void main(String[] args) {
+
+		new Login();
+	}
 }
