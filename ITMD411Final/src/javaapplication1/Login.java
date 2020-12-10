@@ -1,6 +1,7 @@
 package javaapplication1;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout; //useful for layouts
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,7 +29,7 @@ public class Login extends JFrame {
 		setSize(400, 210);
 		setLayout(new GridLayout(4, 2));
 		setLocationRelativeTo(null); // centers window
-		getContentPane().setBackground(new Color(0,0,255));
+		getContentPane().setBackground(new Color(105, 96, 219));
 		
 		// SET UP CONTROLS
 		JLabel lblUsername = new JLabel("Username", JLabel.LEFT);
@@ -37,6 +38,9 @@ public class Login extends JFrame {
 		lblUsername.setForeground(Color.WHITE);
 		lblPassword.setForeground(Color.WHITE);
 		lblStatus.setForeground(Color.WHITE);
+	    lblUsername.setFont(new Font("Garamond", Font.PLAIN, 18));
+	    lblPassword.setFont(new Font("Garamond", Font.PLAIN, 18));
+
 		// JLabel lblSpacer = new JLabel(" ", JLabel.CENTER);
 
 		JTextField txtUname = new JTextField(10);
@@ -44,6 +48,15 @@ public class Login extends JFrame {
 		JPasswordField txtPassword = new JPasswordField();
 		JButton btn = new JButton("Submit");
 		JButton btnExit = new JButton("Exit");
+	    btn.setFont(new Font("Garamond", Font.PLAIN, 18));
+	    btnExit.setFont(new Font("Garamond", Font.PLAIN, 18));
+	    btnExit.setBackground(Color.BLACK);
+	    btnExit.setForeground(Color.WHITE);
+	    btn.setBackground(Color.BLACK);
+	    btn.setForeground(Color.WHITE);
+
+	    
+
 
 		// constraints
 
