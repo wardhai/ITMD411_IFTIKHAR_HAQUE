@@ -87,3 +87,4 @@ public class Login extends JFrame {
 		setVisible(true); // SHOW THE FRAME
 	}
 
+}
