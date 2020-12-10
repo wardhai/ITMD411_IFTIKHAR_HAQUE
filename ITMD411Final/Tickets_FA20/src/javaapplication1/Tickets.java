@@ -160,4 +160,3 @@ public class Tickets extends JFrame implements ActionListener {
 	}
 
 }
-
