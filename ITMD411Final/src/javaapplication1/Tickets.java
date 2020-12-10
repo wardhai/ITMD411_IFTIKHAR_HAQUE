@@ -107,7 +107,7 @@ public class Tickets extends JFrame implements ActionListener {
 		});
 		// set frame options
 		setSize(400, 400);
-		getContentPane().setBackground(Color.LIGHT_GRAY);
+		getContentPane().setBackground(Color.BLUE);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
