@@ -1,5 +1,6 @@
 package javaapplication1;
 
+import java.awt.Color;
 import java.awt.GridLayout; //useful for layouts
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +28,8 @@ public class Login extends JFrame {
 		setSize(400, 210);
 		setLayout(new GridLayout(4, 2));
 		setLocationRelativeTo(null); // centers window
-
+		getContentPane().setBackground(new Color(0,0,255));
+		
 		// SET UP CONTROLS
 		JLabel lblUsername = new JLabel("Username", JLabel.LEFT);
 		JLabel lblPassword = new JLabel("Password", JLabel.LEFT);
