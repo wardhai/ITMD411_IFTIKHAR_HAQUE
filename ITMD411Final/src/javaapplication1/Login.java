@@ -34,6 +34,9 @@ public class Login extends JFrame {
 		JLabel lblUsername = new JLabel("Username", JLabel.LEFT);
 		JLabel lblPassword = new JLabel("Password", JLabel.LEFT);
 		JLabel lblStatus = new JLabel(" ", JLabel.CENTER);
+		lblUsername.setForeground(Color.WHITE);
+		lblPassword.setForeground(Color.WHITE);
+		lblStatus.setForeground(Color.WHITE);
 		// JLabel lblSpacer = new JLabel(" ", JLabel.CENTER);
 
 		JTextField txtUname = new JTextField(10);
@@ -67,7 +70,7 @@ public class Login extends JFrame {
 				count = count + 1;
 				// verify credentials of user (MAKE SURE TO CHANGE TO YOUR TABLE NAME BELOW)
 
-				String query = "SELECT * FROM swiftHQ_users WHERE uname = ? and upass = ?;";
+				String query = "SELECT * FROM swifthq_users WHERE uname = ? and upass = ?;";
 				try (PreparedStatement stmt = conn.getConnection().prepareStatement(query)) {
 					stmt.setString(1, txtUname.getText());
 					stmt.setString(2, txtPassword.getText());
