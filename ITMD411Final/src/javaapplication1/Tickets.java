@@ -191,6 +191,18 @@ public class Tickets extends JFrame implements ActionListener {
 					e1.printStackTrace();
 				}
 			}
+		
+			//if user clicks on history button
+		/*
+			else if (e.getSource() == mnuItemHistory) {
+				try {
+					
+
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				
+			}*/
 
 			}
 
