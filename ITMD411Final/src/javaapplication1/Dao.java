@@ -185,9 +185,9 @@ public class Dao {
 	      System.out.println("Creating update statement...");
 	      statement = connect.createStatement();
 	      
-	      //String sql = "UPDATE swifthq_tickets " + "SET ticket_description = '" + ticketDesc + "' WHERE ticket_id = '" + id +"'";
+	      String sql = "UPDATE swifthq_tickets " + "SET ticket_description = '" + ticketDesc + "' WHERE ticket_id = '" + id +"'";
 	      
-	      //statement.executeUpdate(sql);
+	      statement.executeUpdate(sql);
 	      JOptionPane.showMessageDialog(null, "Update successful.");
 	}
 	
@@ -197,7 +197,8 @@ public class Dao {
 	      System.out.println("Creating statement...");
 	      statement = connect.createStatement();
 	     
-	     String sql = "INSERT swifthq_resolved (ticket_issuer, ticket_description) SELECT ticket_issuer, ticket_description FROM swifthq_tickets WHERE ticket_id = '" + id + "'" +  "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
+	     //String sql = "INSERT swifthq_resolved (ticket_issuer, ticket_description) SELECT ticket_issuer, ticket_description FROM swifthq_tickets WHERE ticket_id = '" + id + "'" +  
+	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	     
 	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	     if (response == JOptionPane.NO_OPTION) {
@@ -205,7 +206,7 @@ public class Dao {
 	       JOptionPane.showMessageDialog(null, "No ticket closed.");
 	       
 	    } else if (response == JOptionPane.YES_OPTION) {
-	      //statement.executeUpdate(sql);
+	      statement.executeUpdate(sql);
 	      JOptionPane.showMessageDialog(null, "Ticket closed.");
 	      System.out.println("Ticket successfully closed.");
 	      
