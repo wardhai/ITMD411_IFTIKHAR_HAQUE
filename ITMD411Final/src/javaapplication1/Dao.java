@@ -57,7 +57,7 @@ public class Dao {
 
 			statement.executeUpdate(createTicketsTable);
 			statement.executeUpdate(createUsersTable);
-			statement.executeUpdate(createHistoryTable);
+			//statement.executeUpdate(createHistoryTable);
 
 			System.out.println("Created tables in given database...");
 
