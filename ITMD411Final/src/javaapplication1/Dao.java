@@ -51,10 +51,10 @@ public class Dao {
 			// execute queries to create tables
 
 			statement = getConnection().createStatement();
-
+			
+			statement.executeUpdate(createResolvedTable);
 			statement.executeUpdate(createTicketsTable);
 			statement.executeUpdate(createUsersTable);
-			statement.executeUpdate(createResolvedTable);
 
 			System.out.println("Created tables in given database...");
 
@@ -157,7 +157,7 @@ public class Dao {
 	public void deleteRecords(int id) throws SQLException {
 
 		// Execute delete  query
-	      System.out.println("Creating statement...");
+	      System.out.println("Creating delete statement...");
 	      statement = connect.createStatement();
 
 	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
@@ -194,11 +194,11 @@ public class Dao {
 	//close ticket
 	public void closeRecords(int id) throws SQLException {
 		// Execute close ticket  query
-	      System.out.println("Creating statement...");
+	      System.out.println("Creating close ticket statement...");
 	      statement = connect.createStatement();
 	     
-	     //String sql = "INSERT swifthq_resolved (ticket_issuer, ticket_description) SELECT ticket_issuer, ticket_description FROM swifthq_tickets WHERE ticket_id = '" + id + "'" +  
-	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
+	     String sql = "INSERT INTO swifthq_resolved SELECT * FROM swifthq_tickets WHERE ticket_id = '" + id + "'";
+	     //String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	     
 	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	     if (response == JOptionPane.NO_OPTION) {
