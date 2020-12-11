@@ -185,9 +185,9 @@ public class Dao {
 	      System.out.println("Creating update statement...");
 	      statement = connect.createStatement();
 	      
-	      String sql = "UPDATE swifthq_tickets " + "SET ticket_description = '" + ticketDesc + "' WHERE ticket_id = '" + id +"'";
+	      //String sql = "UPDATE swifthq_tickets " + "SET ticket_description = '" + ticketDesc + "' WHERE ticket_id = '" + id +"'";
 	      
-	      statement.executeUpdate(sql);
+	      //statement.executeUpdate(sql);
 	      JOptionPane.showMessageDialog(null, "Update successful.");
 	}
 	
@@ -205,7 +205,7 @@ public class Dao {
 	       JOptionPane.showMessageDialog(null, "No ticket closed.");
 	       
 	    } else if (response == JOptionPane.YES_OPTION) {
-	      statement.executeUpdate(sql);
+	      //statement.executeUpdate(sql);
 	      JOptionPane.showMessageDialog(null, "Ticket closed.");
 	      System.out.println("Ticket successfully closed.");
 	      
