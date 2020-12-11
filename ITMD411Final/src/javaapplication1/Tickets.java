@@ -31,6 +31,7 @@ public class Tickets extends JFrame implements ActionListener {
 	JMenuItem mnuItemExit;
 	JMenuItem mnuItemUpdate;
 	JMenuItem mnuItemDelete;
+	JMenuItem mnuCloseTicket;
 	JMenuItem mnuItemHistory;
 	JMenuItem mnuItemOpenTicket;
 	JMenuItem mnuItemViewTicket;
@@ -76,6 +77,11 @@ public class Tickets extends JFrame implements ActionListener {
 		mnuItemViewTicket = new JMenuItem("View Ticket");
 		// add to Ticket Main menu item
 		mnuTickets.add(mnuItemViewTicket);
+		
+		// initialize third sub menu item for Tickets main menu
+		mnuCloseTicket = new JMenuItem("Close Ticket");
+		// add to Ticket Main menu item
+		mnuTickets.add(mnuCloseTicket);
 
 		// initialize any more desired sub menu items below
 
@@ -177,7 +183,20 @@ public class Tickets extends JFrame implements ActionListener {
 					e1.printStackTrace();
 				}
 			}
-			
+		
+			//if user clicks on close ticket button
+			else if (e.getSource() == mnuCloseTicket) {		
+
+				try {
+					String idvalue = JOptionPane.showInputDialog(null, "Which ticket_id do you want to close?");
+					int id = Integer.parseInt(idvalue);
+					dao.closeRecords(id);
+
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		
 			//if user clicks on update button
 			else if (e.getSource() == mnuItemUpdate) {
 

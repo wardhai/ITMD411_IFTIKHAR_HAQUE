@@ -1,9 +1,6 @@
 //test test 
 package javaapplication1;
 
-import java.io.*;
-import java.sql.*;
-import java.util.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -47,7 +44,7 @@ public class Dao {
 		// variables for SQL Query table creations
 		final String createTicketsTable = "CREATE TABLE swifthq_tickets(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200))";
 		final String createUsersTable = "CREATE TABLE swifthq_users(uid INT AUTO_INCREMENT PRIMARY KEY, uname VARCHAR(30), upass VARCHAR(30), admin int)";
-		//final String createHistoryTable = "CREATE TABLE swifthq_history(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200))";
+		final String createHistoryTable = "CREATE TABLE swifthq_history(ticket_id INT AUTO_INCREMENT PRIMARY KEY, history_description VARCHAR(200))";
 
 		try {
 
@@ -57,7 +54,7 @@ public class Dao {
 
 			statement.executeUpdate(createTicketsTable);
 			statement.executeUpdate(createUsersTable);
-			//statement.executeUpdate(createHistoryTable);
+			statement.executeUpdate(createHistoryTable);
 
 			System.out.println("Created tables in given database...");
 
@@ -192,5 +189,31 @@ public class Dao {
 	      
 	      statement.executeUpdate(sql);
 	      JOptionPane.showMessageDialog(null, "Update successful.");
+	}
+	
+	//close ticket
+	public void closeRecords(int id) throws SQLException {
+		// TODO Auto-generated method stub
+
+		// Execute close ticket  query
+	      System.out.println("Creating statement...");
+	      statement = connect.createStatement();
+
+	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
+	    
+	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	     if (response == JOptionPane.NO_OPTION) {
+	       System.out.println("No record closed");
+	       JOptionPane.showMessageDialog(null, "No ticket closed.");
+	       
+	    } else if (response == JOptionPane.YES_OPTION) {
+	      statement.executeUpdate(sql);
+	      JOptionPane.showMessageDialog(null, "Ticket closed.");
+	      System.out.println("Ticket successfully closed.");
+	      
+	    } else if (response == JOptionPane.CLOSED_OPTION) {
+	      JOptionPane.showMessageDialog(null, "Error: Ticket did not close.");
+	      System.out.println("Request cancelled");
+	    }
 	}
 }
