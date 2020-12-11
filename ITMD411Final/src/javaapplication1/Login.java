@@ -55,8 +55,6 @@ public class Login extends JFrame {
 	    btn.setBackground(Color.BLACK);
 	    btn.setForeground(Color.WHITE);
 
-	    
-
 
 		// constraints
 
@@ -83,7 +81,7 @@ public class Login extends JFrame {
 				count = count + 1;
 				// verify credentials of user (MAKE SURE TO CHANGE TO YOUR TABLE NAME BELOW)
 
-				String query = "SELECT * FROM swifthq_users WHERE uname = ? and upass = ? and admin = ?;";
+				String query = "SELECT * FROM swifthq_users WHERE uname = ? and upass = ?;";
 				try (PreparedStatement stmt = conn.getConnection().prepareStatement(query)) {
 					stmt.setString(1, txtUname.getText());
 					stmt.setString(2, txtPassword.getText());
