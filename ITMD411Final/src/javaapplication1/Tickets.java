@@ -92,14 +92,13 @@ public class Tickets extends JFrame implements ActionListener {
 		mnuItemHistory.addActionListener(this);
 		mnuItemOpenTicket.addActionListener(this);
 		mnuItemViewTicket.addActionListener(this);
+		mnuCloseTicket.addActionListener(this);
 
 		 /*
 		  * continue implementing any other desired sub menu items (like 
 		  * for update and delete sub menus for example) with similar 
 		  * syntax & logic as shown above*
 		 */
-
-
 	}
 
 	private void prepareGUI() {

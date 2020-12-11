@@ -193,8 +193,6 @@ public class Dao {
 	
 	//close ticket
 	public void closeRecords(int id) throws SQLException {
-		// TODO Auto-generated method stub
-
 		// Execute close ticket  query
 	      System.out.println("Creating statement...");
 	      statement = connect.createStatement();
