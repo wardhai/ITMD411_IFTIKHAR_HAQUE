@@ -64,7 +64,7 @@ public class Tickets extends JFrame implements ActionListener {
 		mnuAdmin.add(mnuItemDelete);
 		
 		// initialize third sub menu items for Admin main menu
-		mnuItemResolved = new JMenuItem("Check Resolved Tickets);
+		mnuItemResolved = new JMenuItem("Check Resolved Tickets");
 		// add to Admin main menu item
 		mnuAdmin.add(mnuItemResolved);
 		
