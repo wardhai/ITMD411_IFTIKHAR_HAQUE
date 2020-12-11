@@ -176,18 +176,17 @@ public class Dao {
 	      JOptionPane.showMessageDialog(null, "Ticket cancelled.");
 	      System.out.println("Request cancelled");
 	    }
-	 // TODO Auto-generated method stub	    
-	 public void updateRecords(int id) {
-		     
-	     // Execute update  query
+		
+	}
+
+	public void updateRecords(int ticketchange) throws SQLException {
+		// TODO Auto-generated method stub
+		 // Execute update  query
 	      System.out.println("Creating update statement...");
 	      statement = connect.createStatement();
 	      
 	      String sql1 = "UPDATE swifthq_tickets " + "SET ticket_desc = ‘Can’t win ‘’em all’ WHERE id in (100, 101)";
 	      
 	      statement.executeUpdate(sql1);
-
-		}
-		
 	}
 }

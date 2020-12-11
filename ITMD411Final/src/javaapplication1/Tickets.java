@@ -183,14 +183,15 @@ public class Tickets extends JFrame implements ActionListener {
 
 				try {
 					String idvalue = JOptionPane.showInputDialog(null, "Which ticket_id do you want to update?");
-					int id = Integer.parseInt(idvalue);
-					dao.updateRecords(id);
+					int ticketchange = Integer.parseInt(idvalue);
+					dao.updateRecords(ticketchange);
 
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
 			}
-			}*/
 
-}}
+			}
+
+}
 
