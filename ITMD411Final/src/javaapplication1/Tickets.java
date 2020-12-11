@@ -121,7 +121,7 @@ public class Tickets extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		{
+		
 		// implement actions for sub menu items
 		if (e.getSource() == mnuItemExit) {
 			System.exit(0);
@@ -190,8 +190,6 @@ public class Tickets extends JFrame implements ActionListener {
 					e1.printStackTrace();
 				}
 			}
-		}
-	
 			}*/
 
 }}
