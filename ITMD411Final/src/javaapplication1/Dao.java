@@ -216,4 +216,19 @@ public class Dao {
 	      System.out.println("Request cancelled");
 	    }
 	}
+	
+	//Display resolved tickets
+	public ResultSet readResolved() {
+		ResultSet results = null;
+		try {
+			statement = connect.createStatement();
+			results = statement.executeQuery("SELECT * FROM swifthq_resolved");
+			//connect.close();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return results;
+	}
 }
+
+

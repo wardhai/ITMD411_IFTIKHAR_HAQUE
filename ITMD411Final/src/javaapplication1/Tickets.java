@@ -212,16 +212,22 @@ public class Tickets extends JFrame implements ActionListener {
 			}
 		
 			//if user clicks on resolved button
-		/*
 			else if (e.getSource() == mnuItemResolved) {
+				// retrieve all resolved tickets details for viewing in JTable
 				try {
-					
+					// Use JTable built in functionality to build a table model and
+					// display the table model off your result set!!!
+					JTable jt = new JTable(ticketsJTable.buildTableModel(dao.readResolved()));
+					jt.setBounds(30, 40, 200, 400);
+					JScrollPane sp = new JScrollPane(jt);
+					add(sp);
+					setVisible(true); // refreshes or repaints frame on screen
 
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
 				
-			}*/
+			}
 
 			}
 
