@@ -149,20 +149,20 @@ public class Dao {
 			e1.printStackTrace();
 		}
 		return results;
-	}}
+	}
 	// continue coding for updateRecords implementation
 	
-/*
+
 	// continue coding for deleteRecords implementation
-	public void deleteRecords(String ticketName, String ticketDesc) {
+	public void deleteRecords(int id) throws SQLException {
 
 		// Execute delete  query
 	      System.out.println("Creating statement...");
 	      statement = connect.createStatement();
 
-		String sql = "DELETE FROM swifthq_tickets  " + "WHERE id = '" +tickID+ "'" ;
+	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE id = '" + id + "'" ;
 	    
-	     int response = JOptionPane.showConfirmDialog(null, "Delete ticket # " + tickID + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	     int response = JOptionPane.showConfirmDialog(null, "Delete ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	     if (response == JOptionPane.NO_OPTION) {
 	       System.out.println("No record deleted");
 	    } else if (response == JOptionPane.YES_OPTION) {
@@ -174,4 +174,3 @@ public class Dao {
 
 	}
 }
-*/

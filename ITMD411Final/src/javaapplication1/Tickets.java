@@ -165,15 +165,17 @@ public class Tickets extends JFrame implements ActionListener {
 		 * delete sub menus for example) with similar syntax & logic as shown above
 		 */
 			//if user clicks on delete button 
-			/*else if (e.getSource() == mnuItemDelete) {
+			else if (e.getSource() == mnuItemDelete) {		
 
 				try {
-
+					String idvalue = JOptionPane.showInputDialog(null, "Which ticket_id do you want to delete?");
+					int id = Integer.parseInt(idvalue);
+					dao.deleteRecords(id);
 
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-			}*/
+			}
 			
 			//if user clicks on update button
 			/*else if (e.getSource() == mnuItemUpdate) {
