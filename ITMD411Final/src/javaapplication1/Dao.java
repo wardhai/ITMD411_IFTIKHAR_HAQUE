@@ -160,15 +160,20 @@ public class Dao {
 	      System.out.println("Creating statement...");
 	      statement = connect.createStatement();
 
-	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE id = '" + id + "'" ;
+	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	    
 	     int response = JOptionPane.showConfirmDialog(null, "Delete ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	     if (response == JOptionPane.NO_OPTION) {
 	       System.out.println("No record deleted");
+	       JOptionPane.showMessageDialog(null, "No ticket deleted.");
+	       
 	    } else if (response == JOptionPane.YES_OPTION) {
 	      statement.executeUpdate(sql);
+	      JOptionPane.showMessageDialog(null, "Ticket deleted.");
 	      System.out.println("Record deleted");
+	      
 	    } else if (response == JOptionPane.CLOSED_OPTION) {
+	      JOptionPane.showMessageDialog(null, "Ticket cancelled.");
 	      System.out.println("Request cancelled");
 	    }
 
