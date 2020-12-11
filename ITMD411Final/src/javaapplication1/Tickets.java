@@ -107,7 +107,7 @@ public class Tickets extends JFrame implements ActionListener {
 		});
 		// set frame options
 		setSize(400, 400);
-		getContentPane().setBackground(Color.BLUE);
+		getContentPane().setBackground(new Color(105, 96, 219));
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
@@ -152,12 +152,32 @@ public class Tickets extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			}
 		}
+		
 		/*
 		 * continue implementing any other desired sub menu items (like for update and
 		 * delete sub menus for example) with similar syntax & logic as shown above
 		 */
+			//if user clicks on delete button 
+			/*else if (e.getSource() == mnuItemDelete) {
 
-	}
+				try {
 
-}
+
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}*/
+			
+			//if user clicks on update button
+			/*else if (e.getSource() == mnuItemUpdate) {
+
+				try {
+
+
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}*/
+
+}}
 

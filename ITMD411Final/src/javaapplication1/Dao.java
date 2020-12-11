@@ -1,6 +1,9 @@
 //test test 
 package javaapplication1;
 
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -12,6 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 
 public class Dao {
 	// instance fields
@@ -144,8 +149,29 @@ public class Dao {
 			e1.printStackTrace();
 		}
 		return results;
-	}
+	}}
 	// continue coding for updateRecords implementation
-
+	
+/*
 	// continue coding for deleteRecords implementation
+	public void deleteRecords(String ticketName, String ticketDesc) {
+
+		// Execute delete  query
+	      System.out.println("Creating statement...");
+	      statement = connect.createStatement();
+
+		String sql = "DELETE FROM swifthq_tickets  " + "WHERE id = '" +tickID+ "'" ;
+	    
+	     int response = JOptionPane.showConfirmDialog(null, "Delete ticket # " + tickID + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	     if (response == JOptionPane.NO_OPTION) {
+	       System.out.println("No record deleted");
+	    } else if (response == JOptionPane.YES_OPTION) {
+	      statement.executeUpdate(sql);
+	      System.out.println("Record deleted");
+	    } else if (response == JOptionPane.CLOSED_OPTION) {
+	      System.out.println("Request cancelled");
+	    }
+
+	}
 }
+*/
