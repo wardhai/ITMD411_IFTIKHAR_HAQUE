@@ -179,13 +179,13 @@ public class Dao {
 		
 	}
 
-	public void updateRecords(int ticketchange) throws SQLException {
+	public void updateRecords(int ticketchange, String ticketDescription) throws SQLException {
 		// TODO Auto-generated method stub
 		 // Execute update  query
 	      System.out.println("Creating update statement...");
 	      statement = connect.createStatement();
 	      
-	      String sql1 = "UPDATE swifthq_tickets " + "SET ticket_desc = ‘Can’t win ‘’em all’ WHERE id in (100, 101)";
+	      String sql1 = "UPDATE swifthq_tickets " + "SET ticket_description =" + ticketDescription + "WHERE ticket_id = " + ticketchange;
 	      
 	      statement.executeUpdate(sql1);
 	}
