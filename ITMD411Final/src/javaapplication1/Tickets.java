@@ -121,6 +121,7 @@ public class Tickets extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		{
 		// implement actions for sub menu items
 		if (e.getSource() == mnuItemExit) {
 			System.exit(0);
@@ -178,14 +179,19 @@ public class Tickets extends JFrame implements ActionListener {
 			}
 			
 			//if user clicks on update button
-			/*else if (e.getSource() == mnuItemUpdate) {
+			else if (e.getSource() == mnuItemUpdate) {
 
 				try {
-
+					String idvalue = JOptionPane.showInputDialog(null, "Which ticket_id do you want to update?");
+					int id = Integer.parseInt(idvalue);
+					dao.updateRecords(id);
 
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
+			}
+		}
+	
 			}*/
 
 }}
