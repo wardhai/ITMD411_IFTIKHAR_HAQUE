@@ -14,7 +14,7 @@ public class ticketsJTable {
 
 	public static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
 
-		ResultSetMetaData metaData = rs.getMetaData();
+		ResultSetMetaData metaData = rs.getMetaData(); 
 
 		// names of columns
 		Vector<String> columnNames = new Vector<String>();

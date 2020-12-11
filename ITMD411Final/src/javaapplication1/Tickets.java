@@ -32,7 +32,7 @@ public class Tickets extends JFrame implements ActionListener {
 	JMenuItem mnuItemUpdate;
 	JMenuItem mnuItemDelete;
 	JMenuItem mnuCloseTicket;
-	JMenuItem mnuItemHistory;
+	JMenuItem mnuItemResolved;
 	JMenuItem mnuItemOpenTicket;
 	JMenuItem mnuItemViewTicket;
 
@@ -64,9 +64,9 @@ public class Tickets extends JFrame implements ActionListener {
 		mnuAdmin.add(mnuItemDelete);
 		
 		// initialize third sub menu items for Admin main menu
-		mnuItemHistory = new JMenuItem("Check Ticket History");
+		mnuItemResolved = new JMenuItem("Check Resolved Tickets);
 		// add to Admin main menu item
-		mnuAdmin.add(mnuItemHistory);
+		mnuAdmin.add(mnuItemResolved);
 		
 		// initialize fourth sub menu item for Admin main menu
 		mnuCloseTicket = new JMenuItem("Close Ticket");
@@ -90,7 +90,7 @@ public class Tickets extends JFrame implements ActionListener {
 		mnuItemExit.addActionListener(this);
 		mnuItemUpdate.addActionListener(this);
 		mnuItemDelete.addActionListener(this);
-		mnuItemHistory.addActionListener(this);
+		mnuItemResolved.addActionListener(this);
 		mnuItemOpenTicket.addActionListener(this);
 		mnuItemViewTicket.addActionListener(this);
 		mnuCloseTicket.addActionListener(this);
@@ -149,7 +149,7 @@ public class Tickets extends JFrame implements ActionListener {
 				System.out.println("Ticket cannot be created!!!");
 		}
 
-		else if (e.getSource() == mnuItemViewTicket) {
+		else if (e.getSource() == mnuItemViewTicket) { 
 
 			// retrieve all tickets details for viewing in JTable
 			try {
@@ -211,9 +211,9 @@ public class Tickets extends JFrame implements ActionListener {
 				}
 			}
 		
-			//if user clicks on history button
+			//if user clicks on resolved button
 		/*
-			else if (e.getSource() == mnuItemHistory) {
+			else if (e.getSource() == mnuItemResolved) {
 				try {
 					
 

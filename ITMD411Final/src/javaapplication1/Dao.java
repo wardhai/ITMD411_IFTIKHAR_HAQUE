@@ -44,7 +44,7 @@ public class Dao {
 		// variables for SQL Query table creations
 		final String createTicketsTable = "CREATE TABLE swifthq_tickets(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200))";
 		final String createUsersTable = "CREATE TABLE swifthq_users(uid INT AUTO_INCREMENT PRIMARY KEY, uname VARCHAR(30), upass VARCHAR(30), admin int)";
-		final String createHistoryTable = "CREATE TABLE swifthq_history(ticket_id INT AUTO_INCREMENT PRIMARY KEY, history_description VARCHAR(200))";
+		final String createResolvedTable = "CREATE TABLE swifthq_resolved(ticket_id INT AUTO_INCREMENT PRIMARY KEY, resolved_description VARCHAR(200))";
 
 		try {
 
@@ -54,7 +54,7 @@ public class Dao {
 
 			statement.executeUpdate(createTicketsTable);
 			statement.executeUpdate(createUsersTable);
-			statement.executeUpdate(createHistoryTable);
+			statement.executeUpdate(createResolvedTable);
 
 			System.out.println("Created tables in given database...");
 
@@ -196,7 +196,7 @@ public class Dao {
 		// Execute close ticket  query
 	      System.out.println("Creating statement...");
 	      statement = connect.createStatement();
-
+ 
 	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	    
 	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
