@@ -67,6 +67,11 @@ public class Tickets extends JFrame implements ActionListener {
 		mnuItemHistory = new JMenuItem("Check Ticket History");
 		// add to Admin main menu item
 		mnuAdmin.add(mnuItemHistory);
+		
+		// initialize fourth sub menu item for Admin main menu
+		mnuCloseTicket = new JMenuItem("Close Ticket");
+		// add to Ticket Main menu item
+		mnuAdmin.add(mnuCloseTicket);
 
 		// initialize first sub menu item for Tickets main menu
 		mnuItemOpenTicket = new JMenuItem("Open Ticket");
@@ -78,10 +83,6 @@ public class Tickets extends JFrame implements ActionListener {
 		// add to Ticket Main menu item
 		mnuTickets.add(mnuItemViewTicket);
 		
-		// initialize third sub menu item for Tickets main menu
-		mnuCloseTicket = new JMenuItem("Close Ticket");
-		// add to Ticket Main menu item
-		mnuTickets.add(mnuCloseTicket);
 
 		// initialize any more desired sub menu items below
 
