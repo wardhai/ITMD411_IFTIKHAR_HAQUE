@@ -1,6 +1,7 @@
 package javaapplication1;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -133,6 +134,13 @@ public class Tickets extends JFrame implements ActionListener {
 		getContentPane().setBackground(new Color(10, 44, 92));
 		setLocationRelativeTo(null);
 		setVisible(true);
+		
+		// ADD SWIFTHQ LOGO
+		JLabel lblLogo = new JLabel("", JLabel.CENTER);
+		lblLogo.setHorizontalAlignment(JLabel.CENTER);
+		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
+		lblLogo.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(330,330, Image.SCALE_DEFAULT)));
+		add(lblLogo);
 	}
 
 	@Override
@@ -168,6 +176,7 @@ public class Tickets extends JFrame implements ActionListener {
 				// display the table model off your result set!!!
 				JTable jt = new JTable(ticketsJTable.buildTableModel(dao.readRecords()));
 				jt.setBounds(30, 40, 200, 400);
+				getContentPane().setBackground(new Color(10, 44, 92));
 				JScrollPane sp = new JScrollPane(jt);
 				add(sp);
 				setVisible(true); // refreshes or repaints frame on screen
