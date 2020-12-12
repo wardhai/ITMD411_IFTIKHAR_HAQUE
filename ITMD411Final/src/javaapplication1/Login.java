@@ -29,17 +29,18 @@ public class Login extends JFrame {
 		super("IIT HELP DESK LOGIN");
 		conn = new Dao();
 		conn.createTables();
-		setSize(400, 400);
+		setSize(600, 600);
 		
 		setLayout(new GridLayout(1, 1));
 		
+	
 		JLabel lblSpacer = new JLabel("", JLabel.CENTER);
 		lblSpacer.setHorizontalAlignment(JLabel.CENTER);
 		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
 		lblSpacer.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(130,130, Image.SCALE_DEFAULT)));
 		add(lblSpacer);
 		
-		setLayout(new GridLayout(5, 2));
+		setLayout(new GridLayout(6, 2));
 		setLocationRelativeTo(null); // centers window
 		getContentPane().setBackground(new Color(10, 44, 92));		
 		
@@ -90,16 +91,17 @@ public class Login extends JFrame {
 
 		// ADD OBJECTS TO FRAME
 		//add(lblSpacer);
-		add(lblUsername);  // 1st row filler
+		
+		add(lblSpacer);   // 1st row filler
+		add(lblUsername);   // 2nd row
 		add(txtUname);
-		add(lblPassword); // 2nd row
+		add(lblPassword);// 3rd row
 		add(txtPassword);
-		add(lblType);     // 3rd row
+		add(lblType);     // 4th row
 		add(txtType);	  
-		add(btn);         // 4th row
+		add(btn);         // 5th row
 		add(btnExit);
-		add(lblStatus);   // 5th row
-
+		add(lblStatus);   // 6th row
 		btn.addActionListener(new ActionListener() {
 			int count = 0; // count agent
 

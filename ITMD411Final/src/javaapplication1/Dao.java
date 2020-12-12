@@ -146,7 +146,7 @@ public class Dao {
 			results = statement.executeQuery("SELECT * FROM swifthq_tickets");
 			//connect.close();
 		} catch (SQLException e1) {
-			e1.printStackTrace();
+			e1.printStackTrace(); 
 		}
 		return results;
 	}
