@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -42,16 +43,22 @@ public class Dao {
 
 	public void createTables() {
 		// variables for SQL Query table creations
-		final String createTicketsTable = "CREATE TABLE swifthq_tickets(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200), start_date VARCHAR(30), end_date VARCHAR(30))";
+		final String createTicketsTable = "CREATE TABLE swifthq_tickets(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200), start_date VARCHAR(30))";
 		final String createUsersTable = "CREATE TABLE swifthq_users(uid INT AUTO_INCREMENT PRIMARY KEY, uname VARCHAR(30), upass VARCHAR(30), admin int)";
 		final String createResolvedTable = "CREATE TABLE swifthq_resolved(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200), start_date VARCHAR(30), end_date VARCHAR(30))";
-
+		//final String createNewTicketsTable = "ALTER TABLE swifthq_tickets ADD start_date date";
+		//final String createNewResolvedTable = "ALTER TABLE swifthq_resolved ADD start_date date";
+			
+		
 		try {
 
 			// execute queries to create tables
 
 			statement = getConnection().createStatement();
 			
+			//statement.executeUpdate(createNewResolvedTable);
+			//statement.executeUpdate(createNewTicketsTable);
+
 			statement.executeUpdate(createResolvedTable);
 			statement.executeUpdate(createTicketsTable);
 			statement.executeUpdate(createUsersTable);
@@ -115,12 +122,12 @@ public class Dao {
 		}
 	}
 
-	public int insertRecords(String ticketName, String ticketDesc) {
+	public int insertRecords(String ticketName, String ticketDesc, Date startdate) {
 		int id = 0;
 		try {
 			statement = getConnection().createStatement();
-			statement.executeUpdate("Insert into swifthq_tickets" + "(ticket_issuer, ticket_description) values(" + " '"
-					+ ticketName + "','" + ticketDesc + "')", Statement.RETURN_GENERATED_KEYS);
+			statement.executeUpdate("Insert into swifthq_tickets" + "(ticket_issuer, ticket_description, start_date) values(" + " '"
+					+ ticketName + "','" + ticketDesc + "', ?)", Statement.RETURN_GENERATED_KEYS);
 
 			// retrieve ticket id number newly auto generated upon record insertion
 			ResultSet resultSet = null;

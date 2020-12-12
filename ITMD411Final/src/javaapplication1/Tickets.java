@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -138,10 +139,14 @@ public class Tickets extends JFrame implements ActionListener {
 			// get ticket information
 			String ticketName = JOptionPane.showInputDialog(null, "Enter your name");
 			String ticketDesc = JOptionPane.showInputDialog(null, "Enter a ticket description");
+			 
+			Date startdate = new Date();
+			
+			//SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
 			// insert ticket information to database
 
-			int id = dao.insertRecords(ticketName, ticketDesc);
+			int id = dao.insertRecords(ticketName, ticketDesc, startdate);
 
 			// display results if successful or not to console / dialog box
 			if (id != 0) {

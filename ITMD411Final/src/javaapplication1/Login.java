@@ -157,7 +157,7 @@ public class Login extends JFrame {
 					ResultSet rs = stmt2.executeQuery();
 					if(rs.next()) {
 						adminid = rs.getInt("admin");
-						userid = rs.getInt("uid");
+						//userid = rs.getInt("uid");
 					} else
 						lblStatus.setText("Try again! " + (3 - count) + " / 3 attempts left");
 				} catch (SQLException ex) {
