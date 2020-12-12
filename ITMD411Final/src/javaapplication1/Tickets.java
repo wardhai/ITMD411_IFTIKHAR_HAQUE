@@ -134,13 +134,7 @@ public class Tickets extends JFrame implements ActionListener {
 		getContentPane().setBackground(new Color(10, 44, 92));
 		setLocationRelativeTo(null);
 		setVisible(true);
-		
-		// ADD SWIFTHQ LOGO
-		JLabel lblLogo = new JLabel("", JLabel.CENTER);
-		lblLogo.setHorizontalAlignment(JLabel.CENTER);
-		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
-		lblLogo.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(330,330, Image.SCALE_DEFAULT)));
-		add(lblLogo);
+	
 	}
 
 	@Override
