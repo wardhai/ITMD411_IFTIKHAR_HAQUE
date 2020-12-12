@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -122,12 +123,12 @@ public class Dao {
 		}
 	}
 
-	public int insertRecords(String ticketName, String ticketDesc, Date startdate) {
+	public int insertRecords(String ticketName, String ticketDesc, LocalDate startdate) {
 		int id = 0;
 		try {
 			statement = getConnection().createStatement();
 			statement.executeUpdate("Insert into swifthq_tickets" + "(ticket_issuer, ticket_description, start_date) values(" + " '"
-					+ ticketName + "','" + ticketDesc + "', DATETIME", Statement.RETURN_GENERATED_KEYS);
+					+ ticketName + "','" + ticketDesc + "','" + Tickets.startdate +"')", Statement.RETURN_GENERATED_KEYS);
 
 			// retrieve ticket id number newly auto generated upon record insertion
 			ResultSet resultSet = null;
@@ -215,12 +216,13 @@ public class Dao {
 	}
 	
 	//close ticket
-	public void closeRecords(int id) throws SQLException {
+	public void closeRecords(int id, LocalDate enddate) throws SQLException {
 		// Execute close ticket  query
 	      System.out.println("Creating close ticket statement...");
 	      statement = connect.createStatement();
-	     
+
 	     String sql = "INSERT INTO swifthq_resolved SELECT * FROM swifthq_tickets WHERE ticket_id = '" + id + "'";
+	     String sql2=("INSERT INTO swifthq_resolved" + "(end_date) values(" + " '" + Tickets.enddate +"')");
 	     String sql1="DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	     
 	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -231,6 +233,7 @@ public class Dao {
 	    } else if (response == JOptionPane.YES_OPTION) {
 	      statement.executeUpdate(sql);
 	      statement.executeUpdate(sql1);
+	      statement.executeUpdate(sql2);
 	      JOptionPane.showMessageDialog(null, "Ticket closed.");
 	      System.out.println("Ticket successfully closed.");
 	      

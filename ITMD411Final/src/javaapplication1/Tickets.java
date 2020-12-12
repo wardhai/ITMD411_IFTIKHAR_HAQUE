@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
@@ -24,6 +27,10 @@ public class Tickets extends JFrame implements ActionListener {
 	// class level member objects
 	Dao dao = new Dao(); // for CRUD operations
 	Boolean chkIfAdmin = null;
+	//Current Date and Time variable
+	SimpleDateFormat dtf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+	public static LocalDate startdate = LocalDate.now();
+	public static LocalDate enddate = LocalDate.now();
 
 	// Main menu object items
 	private JMenu mnuFile = new JMenu("File");
@@ -139,10 +146,6 @@ public class Tickets extends JFrame implements ActionListener {
 			// get ticket information
 			String ticketName = JOptionPane.showInputDialog(null, "Enter your name");
 			String ticketDesc = JOptionPane.showInputDialog(null, "Enter a ticket description");
-			 
-			Date startdate = new Date();
-			
-			//SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
 			// insert ticket information to database
 
@@ -197,7 +200,7 @@ public class Tickets extends JFrame implements ActionListener {
 				try {
 					String idvalue = JOptionPane.showInputDialog(null, "Which ticket_id do you want to close?");
 					int id = Integer.parseInt(idvalue);
-					dao.closeRecords(id);
+					dao.closeRecords(id, enddate);
 
 				} catch (SQLException e1) {
 					e1.printStackTrace();
