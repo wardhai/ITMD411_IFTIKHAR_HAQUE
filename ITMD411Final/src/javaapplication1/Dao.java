@@ -185,6 +185,8 @@ public class Dao {
 	      statement = connect.createStatement();
 
 	     String sql = "DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
+	     String sql1="DELETE FROM swifthq_resolved  " + "WHERE ticket_id = '" + id + "'" ;
+
 	    
 	     int response = JOptionPane.showConfirmDialog(null, "Delete ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 	     if (response == JOptionPane.NO_OPTION) {
@@ -193,6 +195,7 @@ public class Dao {
 	       
 	    } else if (response == JOptionPane.YES_OPTION) {
 	      statement.executeUpdate(sql);
+	      statement.executeUpdate(sql1);
 	      JOptionPane.showMessageDialog(null, "Ticket deleted.");
 	      System.out.println("Record deleted");
 	      
