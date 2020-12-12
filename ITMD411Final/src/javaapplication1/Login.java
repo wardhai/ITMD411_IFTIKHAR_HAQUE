@@ -51,8 +51,8 @@ public class Login extends JFrame {
 		
 		// SET UP CONTROLS
 		JLabel lblSpacer = new JLabel("Help Desk", JLabel.RIGHT);
-		JLabel lblUsername = new JLabel("Username", JLabel.LEFT);
-		JLabel lblPassword = new JLabel("Password", JLabel.LEFT);
+		JLabel lblUsername = new JLabel("Enter Username", JLabel.LEFT);
+		JLabel lblPassword = new JLabel("Enter Password", JLabel.LEFT);
 		JLabel lblType = new JLabel("Select Type", JLabel.LEFT);
 		JLabel lblStatus = new JLabel(" ", JLabel.CENTER);
 		//JLabel lblSpacer = new JLabel("", JLabel.CENTER);
