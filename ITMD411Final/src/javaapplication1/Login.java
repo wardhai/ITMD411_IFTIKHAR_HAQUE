@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import javax.swing.ImageIcon;
 //controls-label text fields, button
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,7 +38,7 @@ public class Login extends JFrame {
 		
 		setLayout(new GridLayout(1, 1));
 		
-	
+		// ADD SWIFTHQ LOGO
 		JLabel lblLogo = new JLabel("", JLabel.CENTER);
 		lblLogo.setHorizontalAlignment(JLabel.CENTER);
 		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
@@ -48,6 +49,7 @@ public class Login extends JFrame {
 		setLayout(new GridLayout(6, 3));
 		setLocationRelativeTo(null); // centers window
 		getContentPane().setBackground(new Color(10, 44, 92));		
+
 		
 		// SET UP CONTROLS
 		JLabel lblSpacer = new JLabel("Help Desk", JLabel.RIGHT);
@@ -93,24 +95,24 @@ public class Login extends JFrame {
 		lblType.setHorizontalAlignment(JLabel.CENTER);
 		
 		
-		//lblSpacer.setHorizontalAlignment(JLabel.CENTER);
-		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
-
-		//lblSpacer.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT)));
-
+		//SELECT DROPDOWN LIST
+		String selection[]= { "Admin", "User" };
+		JComboBox select = new JComboBox(selection);
+		//select.addItemListener(this);
+				
 		// ADD OBJECTS TO FRAME
-		//add(lblSpacer);
-		
 		add(lblSpacer);   // 1st row filler
 		add(lblUsername);   // 2nd row
 		add(txtUname);
 		add(lblPassword);// 3rd row
 		add(txtPassword);
 		add(lblType);     // 4th row
-		add(txtType);	  
+		//add(txtType);	  
+		add(select);
 		add(btn);         // 5th row
 		add(btnExit);
 		add(lblStatus);   // 6th row
+		
 		btn.addActionListener(new ActionListener() {
 			int count = 0; // count agent
 
