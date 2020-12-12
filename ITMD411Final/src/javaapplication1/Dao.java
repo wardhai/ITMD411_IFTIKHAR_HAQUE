@@ -222,7 +222,7 @@ public class Dao {
 	      statement = connect.createStatement();
 
 	     String sql = "INSERT INTO swifthq_resolved SELECT * FROM swifthq_tickets WHERE ticket_id = '" + id + "'";
-	     String sql2=("INSERT INTO swifthq_resolved" + "(end_date) values(" + " '" + Tickets.enddate +"')");
+	     //String sql2="INSERT INTO swifthq_resolved" + "(end_date) values(" + " '" + Tickets.enddate +"')";
 	     String sql1="DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	     
 	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -233,7 +233,7 @@ public class Dao {
 	    } else if (response == JOptionPane.YES_OPTION) {
 	      statement.executeUpdate(sql);
 	      statement.executeUpdate(sql1);
-	      statement.executeUpdate(sql2);
+	      //statement.executeUpdate(sql2);
 	      JOptionPane.showMessageDialog(null, "Ticket closed.");
 	      System.out.println("Ticket successfully closed.");
 	      
