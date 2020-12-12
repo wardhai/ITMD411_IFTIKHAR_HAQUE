@@ -67,12 +67,12 @@ public class Login extends JFrame {
 		//JLabel lblSpacer = new JLabel("", JLabel.CENTER);
 
 		
-		lblSpacer.setForeground(Color.WHITE);
+		lblSpacer.setForeground(Color.WHITE); 
 		lblUsername.setForeground(Color.WHITE);
 		lblPassword.setForeground(Color.WHITE);
 		lblStatus.setForeground(Color.WHITE);
 		lblType.setForeground(Color.WHITE);
-		lblSpacer.setFont(new Font("Monospaced", Font.BOLD, 18));
+		lblSpacer.setFont(new Font("Monospaced", Font.BOLD, 23));
 	    lblUsername.setFont(new Font("Garamond", Font.PLAIN, 18));
 	    lblPassword.setFont(new Font("Garamond", Font.PLAIN, 18));
 	    lblType.setFont(new Font("Garamond", Font.PLAIN, 18));
