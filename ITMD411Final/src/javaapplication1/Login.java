@@ -11,22 +11,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import javax.swing.ImageIcon;
 //controls-label text fields, button
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-import javax.swing.JTextField;   
+import javax.swing.JTextField;
+import javax.swing.border.Border;   
 
 @SuppressWarnings("serial")
 public class Login extends JFrame {
 
 	Dao conn;
+	private JComponent main;
 
 	public Login() {
 
-		super("IIT HELP DESK LOGIN");
+		super("SwiftHQ HELP DESK LOGIN");
 		conn = new Dao();
 		conn.createTables();
 		setSize(600, 600);
@@ -34,17 +38,19 @@ public class Login extends JFrame {
 		setLayout(new GridLayout(1, 1));
 		
 	
-		JLabel lblSpacer = new JLabel("", JLabel.CENTER);
-		lblSpacer.setHorizontalAlignment(JLabel.CENTER);
+		JLabel lblLogo = new JLabel("", JLabel.CENTER);
+		lblLogo.setHorizontalAlignment(JLabel.CENTER);
 		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
-		lblSpacer.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(130,130, Image.SCALE_DEFAULT)));
-		add(lblSpacer);
+		lblLogo.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(130,130, Image.SCALE_DEFAULT)));
+		add(lblLogo);
+
 		
-		setLayout(new GridLayout(6, 2));
+		setLayout(new GridLayout(6, 3));
 		setLocationRelativeTo(null); // centers window
 		getContentPane().setBackground(new Color(10, 44, 92));		
 		
 		// SET UP CONTROLS
+		JLabel lblSpacer = new JLabel("Help Desk", JLabel.RIGHT);
 		JLabel lblUsername = new JLabel("Username", JLabel.LEFT);
 		JLabel lblPassword = new JLabel("Password", JLabel.LEFT);
 		JLabel lblType = new JLabel("Select Type", JLabel.LEFT);
@@ -52,10 +58,12 @@ public class Login extends JFrame {
 		//JLabel lblSpacer = new JLabel("", JLabel.CENTER);
 
 		
+		lblSpacer.setForeground(Color.WHITE);
 		lblUsername.setForeground(Color.WHITE);
 		lblPassword.setForeground(Color.WHITE);
 		lblStatus.setForeground(Color.WHITE);
 		lblType.setForeground(Color.WHITE);
+		lblSpacer.setFont(new Font("Monospaced", Font.BOLD, 18));
 	    lblUsername.setFont(new Font("Garamond", Font.PLAIN, 18));
 	    lblPassword.setFont(new Font("Garamond", Font.PLAIN, 18));
 	    lblType.setFont(new Font("Garamond", Font.PLAIN, 18));
@@ -79,6 +87,7 @@ public class Login extends JFrame {
 		// constraints
 
 		lblStatus.setToolTipText("Contact help desk to unlock password");
+		lblSpacer.setHorizontalAlignment(JLabel.CENTER);
 		lblUsername.setHorizontalAlignment(JLabel.CENTER);
 		lblPassword.setHorizontalAlignment(JLabel.CENTER);
 		lblType.setHorizontalAlignment(JLabel.CENTER);
@@ -137,6 +146,11 @@ public class Login extends JFrame {
 		setVisible(true); // SHOW THE FRAME
 	}
 	
+	private void setBorder(Border createEmptyBorder) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	//adding combo box for select type (Admin
 
 	public static void main(String[] args) {
