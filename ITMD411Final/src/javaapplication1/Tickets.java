@@ -203,7 +203,7 @@ public class Tickets extends JFrame implements ActionListener {
 				try {
 					String idvalue = JOptionPane.showInputDialog(null, "Which ticket_id do you want to close?");
 					int id = Integer.parseInt(idvalue);
-					dao.closeRecords(id, enddate);
+					dao.closeRecords(id, startdate);
 
 				} catch (SQLException e1) {
 					e1.printStackTrace();

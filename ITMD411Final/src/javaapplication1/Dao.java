@@ -216,13 +216,13 @@ public class Dao {
 	}
 	
 	//close ticket
-	public void closeRecords(int id, LocalDate enddate) throws SQLException {
+	public void closeRecords(int id, LocalDate startdate) throws SQLException {
 		// Execute close ticket  query
 	      System.out.println("Creating close ticket statement...");
 	      statement = connect.createStatement();
-
+			
 	     String sql = "INSERT INTO swifthq_resolved SELECT * FROM swifthq_tickets WHERE ticket_id = '" + id + "'";
-	     //String sql2="INSERT INTO swifthq_resolved" + "(end_date) values(" + " '" + Tickets.enddate +"')";
+	     //String sql2="INSERT INTO swifthq_resolved" + "(end_date) values(" + " '" + Tickets.startdate +"')";
 	     String sql1="DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	     
 	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -234,6 +234,7 @@ public class Dao {
 	      statement.executeUpdate(sql);
 	      statement.executeUpdate(sql1);
 	      //statement.executeUpdate(sql2);
+	      
 	      JOptionPane.showMessageDialog(null, "Ticket closed.");
 	      System.out.println("Ticket successfully closed.");
 	      
