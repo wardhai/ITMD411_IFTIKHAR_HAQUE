@@ -138,19 +138,35 @@ public class Dao {
 
 	}
 
+	//Admin View
 	public ResultSet readRecords() {
 
 		ResultSet results = null;
 		try {
 			statement = connect.createStatement();
 			results = statement.executeQuery("SELECT * FROM swifthq_tickets");
+			System.out.println("Welcome Admin!");
 			//connect.close();
 		} catch (SQLException e1) {
 			e1.printStackTrace(); 
 		}
 		return results;
 	}
-	// continue coding for updateRecords implementation
+	
+	//User View
+	public ResultSet readUserRecords() {
+
+		ResultSet results = null;
+		try {
+			statement = connect.createStatement();
+			results = statement.executeQuery("SELECT * FROM swifthq_tickets WHERE admin= '" + Login.adminid + "';");
+			System.out.println("Welcome User!");
+			//connect.close();
+		} catch (SQLException e1) {
+			e1.printStackTrace(); 
+		}
+		return results;
+	}
 	
 
 	// continue coding for deleteRecords implementation
@@ -178,9 +194,9 @@ public class Dao {
 	    }
 		
 	}
-
+	
+	// continue coding for updateRecords implementation
 	public void updateRecords(int id, String ticketDesc) throws SQLException {
-		// TODO Auto-generated method stub
 		 // Execute update  query
 	      System.out.println("Creating update statement...");
 	      statement = connect.createStatement();

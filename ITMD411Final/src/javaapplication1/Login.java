@@ -27,6 +27,13 @@ import javax.swing.border.Border;
 public class Login extends JFrame {
 
 	Dao conn;
+	//global variables
+	public static int adminid = 0;
+	public static int userid = 0;
+
+	public static String uname = null;
+	public static String upass = null;
+		
 	private JComponent main;
 
 	public Login() {
@@ -126,8 +133,9 @@ public class Login extends JFrame {
 				String query = "SELECT * FROM swifthq_users WHERE uname = ? and upass = ? ;";
 				try (PreparedStatement stmt = conn.getConnection().prepareStatement(query)) {
 					stmt.setString(1, txtUname.getText());
+					uname = txtUname.getText();
 					stmt.setString(2, txtPassword.getText());
-					//stmt.setString(3, txtType.getText());
+					upass = txtPassword.getText();
 					
 					ResultSet rs = stmt.executeQuery();
 					if (rs.next()) {
@@ -140,20 +148,30 @@ public class Login extends JFrame {
 				} catch (SQLException ex) {
 					ex.printStackTrace();
 				}
+				
+				//get user
+				String query1 = "SELECT admin FROM swiftHQ_users WHERE uname = ? and upass = ?;";
+				try (PreparedStatement stmt2 = conn.getConnection().prepareStatement(query1)) {
+					stmt2.setString(1, uname);
+					stmt2.setString(2, upass);
+					ResultSet rs = stmt2.executeQuery();
+					if(rs.next()) {
+						adminid = rs.getInt("admin");
+						userid = rs.getInt("uid");
+					} else
+						lblStatus.setText("Try again! " + (3 - count) + " / 3 attempts left");
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+				}
  			 
-			}
+			
 		});
 		btnExit.addActionListener(e -> System.exit(0));
 
 		setVisible(true); // SHOW THE FRAME
 	}
 	
-	private void setBorder(Border createEmptyBorder) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	//adding combo box for select type (Admin
 
 	public static void main(String[] args) {
 
