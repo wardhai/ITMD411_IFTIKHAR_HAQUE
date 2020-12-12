@@ -127,7 +127,7 @@ public class Dao {
 		try {
 			statement = getConnection().createStatement();
 			statement.executeUpdate("Insert into swifthq_tickets" + "(ticket_issuer, ticket_description, start_date) values(" + " '"
-					+ ticketName + "','" + ticketDesc + "', (DATETIME)", Statement.RETURN_GENERATED_KEYS);
+					+ ticketName + "','" + ticketDesc + "', DATETIME", Statement.RETURN_GENERATED_KEYS);
 
 			// retrieve ticket id number newly auto generated upon record insertion
 			ResultSet resultSet = null;
