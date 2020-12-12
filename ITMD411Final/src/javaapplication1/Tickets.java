@@ -7,7 +7,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -120,7 +122,7 @@ public class Tickets extends JFrame implements ActionListener {
 		});
 		// set frame options
 		setSize(400, 400);
-		getContentPane().setBackground(new Color(105, 96, 219));
+		getContentPane().setBackground(new Color(10, 44, 92));
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

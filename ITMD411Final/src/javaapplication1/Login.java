@@ -4,12 +4,14 @@ import java.awt.Color;
 
 import java.awt.Font;
 import java.awt.GridLayout; //useful for layouts
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
 //controls-label text fields, button
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,16 +29,28 @@ public class Login extends JFrame {
 		super("IIT HELP DESK LOGIN");
 		conn = new Dao();
 		conn.createTables();
-		setSize(400, 210);
+		setSize(400, 400);
+		
+		setLayout(new GridLayout(1, 1));
+		
+		JLabel lblSpacer = new JLabel("", JLabel.CENTER);
+		lblSpacer.setHorizontalAlignment(JLabel.CENTER);
+		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
+		lblSpacer.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(130,130, Image.SCALE_DEFAULT)));
+		add(lblSpacer);
+		
 		setLayout(new GridLayout(5, 2));
 		setLocationRelativeTo(null); // centers window
-		getContentPane().setBackground(new Color(105, 96, 219));
+		getContentPane().setBackground(new Color(10, 44, 92));		
 		
 		// SET UP CONTROLS
 		JLabel lblUsername = new JLabel("Username", JLabel.LEFT);
 		JLabel lblPassword = new JLabel("Password", JLabel.LEFT);
 		JLabel lblType = new JLabel("Select Type", JLabel.LEFT);
 		JLabel lblStatus = new JLabel(" ", JLabel.CENTER);
+		//JLabel lblSpacer = new JLabel("", JLabel.CENTER);
+
+		
 		lblUsername.setForeground(Color.WHITE);
 		lblPassword.setForeground(Color.WHITE);
 		lblStatus.setForeground(Color.WHITE);
@@ -44,8 +58,7 @@ public class Login extends JFrame {
 	    lblUsername.setFont(new Font("Garamond", Font.PLAIN, 18));
 	    lblPassword.setFont(new Font("Garamond", Font.PLAIN, 18));
 	    lblType.setFont(new Font("Garamond", Font.PLAIN, 18));
-
-		// JLabel lblSpacer = new JLabel(" ", JLabel.CENTER);
+		
 
 		JTextField txtUname = new JTextField(10);
 		
@@ -56,9 +69,9 @@ public class Login extends JFrame {
 		JButton btnExit = new JButton("Exit");
 	    btn.setFont(new Font("Garamond", Font.PLAIN, 18));
 	    btnExit.setFont(new Font("Garamond", Font.PLAIN, 18));
-	    btnExit.setBackground(Color.BLACK);
+	    btnExit.setBackground(Color.GRAY);
 	    btnExit.setForeground(Color.WHITE);
-	    btn.setBackground(Color.BLACK);
+	    btn.setBackground(Color.GRAY);
 	    btn.setForeground(Color.WHITE);
 
 
@@ -68,8 +81,15 @@ public class Login extends JFrame {
 		lblUsername.setHorizontalAlignment(JLabel.CENTER);
 		lblPassword.setHorizontalAlignment(JLabel.CENTER);
 		lblType.setHorizontalAlignment(JLabel.CENTER);
- 
+		
+		
+		//lblSpacer.setHorizontalAlignment(JLabel.CENTER);
+		//getContentPane().add(new JLabel(new ImageIcon("src/logo.jpeg")));
+
+		//lblSpacer.setIcon(new ImageIcon(new ImageIcon("src/logo.jpeg").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT)));
+
 		// ADD OBJECTS TO FRAME
+		//add(lblSpacer);
 		add(lblUsername);  // 1st row filler
 		add(txtUname);
 		add(lblPassword); // 2nd row
@@ -90,11 +110,11 @@ public class Login extends JFrame {
 				count = count + 1;
 				// verify credentials of user (MAKE SURE TO CHANGE TO YOUR TABLE NAME BELOW)
 
-				String query = "SELECT * FROM swifthq_users WHERE uname = ? and upass = ? and utype = ?;";
+				String query = "SELECT * FROM swifthq_users WHERE uname = ? and upass = ? ;";
 				try (PreparedStatement stmt = conn.getConnection().prepareStatement(query)) {
 					stmt.setString(1, txtUname.getText());
 					stmt.setString(2, txtPassword.getText());
-					stmt.setString(3, txtType.getText());
+					//stmt.setString(3, txtType.getText());
 					
 					ResultSet rs = stmt.executeQuery();
 					if (rs.next()) {
