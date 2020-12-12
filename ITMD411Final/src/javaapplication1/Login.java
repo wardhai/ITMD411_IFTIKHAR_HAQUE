@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 //controls-label text fields, button
@@ -174,6 +174,14 @@ public class Login extends JFrame {
 	
 
 	public static void main(String[] args) {
+		
+
+		// obtain today's date
+		Date date = new Date();
+
+		// the program's header
+		System.out.println("Today's Date: " + date);
+		System.out.println("[ Programmed by Wardha Iftikhar & Kinza Haque ]\n");
 
 		new Login();
 	}
