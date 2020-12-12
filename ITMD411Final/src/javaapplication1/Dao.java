@@ -21,7 +21,7 @@ public class Dao {
 	Statement statement = null;
 
 	// constructor
-	public Dao() {
+	public Dao() { 
 	  
 	}
 
@@ -42,9 +42,9 @@ public class Dao {
 
 	public void createTables() {
 		// variables for SQL Query table creations
-		final String createTicketsTable = "CREATE TABLE swifthq_tickets(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200))";
+		final String createTicketsTable = "CREATE TABLE swifthq_tickets(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200), start_date VARCHAR(30), end_date VARCHAR(30))";
 		final String createUsersTable = "CREATE TABLE swifthq_users(uid INT AUTO_INCREMENT PRIMARY KEY, uname VARCHAR(30), upass VARCHAR(30), admin int)";
-		final String createResolvedTable = "CREATE TABLE swifthq_resolved(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200))";
+		final String createResolvedTable = "CREATE TABLE swifthq_resolved(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200), start_date VARCHAR(30), end_date VARCHAR(30))";
 
 		try {
 
@@ -62,7 +62,7 @@ public class Dao {
 			// close connection/statement object
 			statement.close();
 			connect.close();
-		} catch (Exception e) {
+		} catch (Exception e) { 
 			System.out.println(e.getMessage());
 		}
 		// add users to user table
