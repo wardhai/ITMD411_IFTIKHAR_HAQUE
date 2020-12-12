@@ -47,7 +47,7 @@ public class Dao {
 		final String createTicketsTable = "CREATE TABLE swifthq_tickets(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200), start_date VARCHAR(30))";
 		final String createUsersTable = "CREATE TABLE swifthq_users(uid INT AUTO_INCREMENT PRIMARY KEY, uname VARCHAR(30), upass VARCHAR(30), admin int)";
 		final String createResolvedTable = "CREATE TABLE swifthq_resolved(ticket_id INT AUTO_INCREMENT PRIMARY KEY, ticket_issuer VARCHAR(30), ticket_description VARCHAR(200), start_date VARCHAR(30), end_date VARCHAR(30))";
-		//final String createNewTicketsTable = "ALTER TABLE swifthq_tickets ADD start_date date";
+		final String createNewTicketsTable = "ALTER TABLE swifthq_tickets ADD end_date date";
 		//final String createNewResolvedTable = "ALTER TABLE swifthq_resolved ADD start_date date";
 			
 		
@@ -58,7 +58,7 @@ public class Dao {
 			statement = getConnection().createStatement();
 			
 			//statement.executeUpdate(createNewResolvedTable);
-			//statement.executeUpdate(createNewTicketsTable);
+			statement.executeUpdate(createNewTicketsTable);
 
 			statement.executeUpdate(createResolvedTable);
 			statement.executeUpdate(createTicketsTable);
@@ -220,9 +220,9 @@ public class Dao {
 		// Execute close ticket  query
 	      System.out.println("Creating close ticket statement...");
 	      statement = connect.createStatement();
-			
+	      
+	     String sql2="INSERT INTO swifthq_resolved" + "(end_date) values(" + " '" + Tickets.startdate +"')";
 	     String sql = "INSERT INTO swifthq_resolved SELECT * FROM swifthq_tickets WHERE ticket_id = '" + id + "'";
-	     //String sql2="INSERT INTO swifthq_resolved" + "(end_date) values(" + " '" + Tickets.startdate +"')";
 	     String sql1="DELETE FROM swifthq_tickets  " + "WHERE ticket_id = '" + id + "'" ;
 	     
 	     int response = JOptionPane.showConfirmDialog(null, "Close ticket # " + id + "?", "Confirm",  JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -231,9 +231,10 @@ public class Dao {
 	       JOptionPane.showMessageDialog(null, "No ticket closed.");
 	       
 	    } else if (response == JOptionPane.YES_OPTION) {
+	      statement.executeUpdate(sql2);
 	      statement.executeUpdate(sql);
 	      statement.executeUpdate(sql1);
-	      //statement.executeUpdate(sql2);
+	      
 	      
 	      JOptionPane.showMessageDialog(null, "Ticket closed.");
 	      System.out.println("Ticket successfully closed.");
